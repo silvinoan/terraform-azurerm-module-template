@@ -1,0 +1,11 @@
+name: Terraform Validation
+
+on:
+  workflow_run:
+    workflows: ["Terraform-docs Auto Update"]
+    types: [completed]
+
+jobs:
+  workflow-calling:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    uses: BancoArbi/github-terraform-workflows/.github/workflows/terraform-validate.yml@v0.0.4

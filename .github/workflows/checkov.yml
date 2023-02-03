@@ -1,0 +1,17 @@
+name: Checkov Validation
+
+on:
+  push:
+    branches: [ 'master' ]
+    paths-ignore: 
+      - 'README.md'
+      - '.github/*'
+      - '.gitignore'
+      - '.editorconfig'
+      - '.terraform-docs.yml'
+      - '.gitattributes'
+
+
+jobs:
+  workflow-calling:
+    uses: BancoArbi/github-terraform-workflows/.github/workflows/checkov.yml@v0.0.4
